@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+.box {
+    background-color: coral;
+    border: darkblue 1px solid;
+    padding: 20px;
+    float: left;
+    width: 25%;
+    
+}
+
+/* in smaller screens */
+@media(max-width: 768px) {
+    .box {
+        float: none;
+        width: 100%;
+    }
+    
+}
+    
