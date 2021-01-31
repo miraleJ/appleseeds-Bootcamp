@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            border: solid 1px #000;
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 30px auto;
+        }
+        
+        #box {
+            border: 1px solid #000;
+            padding: 20px;
+            margin: 15px;
+
+        }
+        .header {
+            /* text-align */
+            text-align: center;
+            background-color: rgb(255, 187, 0);
+        }
+        .nav {
+            background-color: rgb(0, 128, 66);
+            /* text-align */
+            text-align: left;
+
+            float: left;
+            width: calc(30% - 30px);
+            height: 320px;
+        }
+        .main {
+            background-color: rgb(80, 5, 120);
+            /* text-align */
+            text-align: right;
+
+            float: right;
+            width: calc(70% - 30px);
+            height: 320px;
+        }
+        .footer {
+            background-color: blue;
+            /* text-align */
+            text-align: center;
+            clear: both;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="clr"></div>
+    <div class="container">
+        <div id="box" class="header">
+            <p>Header</p>
+        </div>
+        <div id="box" class="nav">
+            <p>Side</p>
+        </div>
+        <div id="box" class="main">
+            <p>Main</p>
+        </div>
+        <div id="box" class="footer">
+            <p>Footer</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,20 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My page - Miriam Yosman</title>
+    <style>
+        .me {
+            border: burlywood;
+            background: cornsilk;
+        }
+    </style>
 </head>
 <body>
-    <h2>Wellcome! I am Miriam Yosman</h2>
-    <h4>I am a programmer.</h4>
-    <img src="/images/פספורט.jpg" alt="picture of me" width="200">
-    <p>
-        Sience I started to learn about computers I started to think that programming is another way of creativity. <br>
-        It is just creating something from nothing. <br>
-        I love to read about new apps and programs and think what can I add to their solutions, what will be the next development in this area.
-    </p>
-    <button type="button"> <strong> Follow Me!</strong></button>
-    <p>
-        <i class="fab fa-facebook"></i>
-        <i class="fab fa-linkedin"></i>
-    </p>
+    <div id="headers">
+        <h2>Wellcome! I am <span class="me"> Miriam Yosman</span></h2>
+        <h4>I am a programmer.</h4>
+    </div>
+    <div id="personal info" class="me">
+        <img src="/images/פספורט.jpg" alt="picture of me" width="200">
+        <p>
+            Sience I started to learn about computers I started to think that programming is another way of creativity. <br>
+            It is just creating something from nothing. <br>
+            I love to read about new apps and programs and think what can I add to their solutions, what will be the next development in this area.
+        </p>
+    </div>
+
+    <div id="links" class="me">
+        <p>
+            <ul>
+                <li><a href="https://github.com/miraleJ" target="_blank">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/mirale-josman-19070145/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.facebook.com/mirale.yosman" target="_blank">Facebook</a></li>
+            </ul>
+        </p>
+    </div>
+    <div>
+        <button type="button"> <strong> Follow Me!</strong></button>
+    </div>
 </body>
 </html>

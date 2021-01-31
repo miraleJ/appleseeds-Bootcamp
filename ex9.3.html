@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .divs {
+            background-color: palegreen;
+            border: orange 2px solid;
+            position: absolute;
+
+        }
+        #one {
+            width: 300px;
+            height: 300px;
+            top: 10px;
+            left: 10px;
+            
+        }
+        #two {
+            width: 250px;
+            height: 250px;
+            top: 200px;
+            left: 200px;
+        }
+        #three {
+            width: 700px;
+            height: 200px;
+            top: 350px;
+            left: 10px;
+        }
+        #four {
+            width: 100px;
+            height: 700px;
+            top: 10px;
+            left: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="divs" id="one">
+            div one
+        </div>
+        <div class="divs" id="two">
+            div two
+        </div>
+        <div class="divs" id="three">
+            div three
+        </div>
+        <div class="divs" id="four">
+            div four
+        </div>
+    </div>
+</body>
+</html>
