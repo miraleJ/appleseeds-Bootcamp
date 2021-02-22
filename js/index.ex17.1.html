@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17.1</title>
+    <style>
+        p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor</p>
+    <button class="plus">+</button>
+    <button class="minus">-</button>
+
+    <script>
+        const plusBtn = document.querySelector('.plus');
+        const minusBtn = document.querySelector('.minus');
+        const text = document.querySelector('p');
+        
+
+        function biggerTxt() {
+            // let fontSize = parseInt(text.style.fontSize);
+            let fontSize = parseInt(window.getComputedStyle(text).fontSize);
+            fontSize += 10;
+            if (fontSize <= 100) {
+                text.style.fontSize = `${fontSize}px`;
+            }
+        }
+
+        function smallerTxt() {
+            let fontSize = parseInt(window.getComputedStyle(text).fontSize);
+            fontSize -= 10;
+            if (fontSize >= 6) {
+                text.style.fontSize = `${fontSize}px`;
+            }
+        }
+        
+
+        plusBtn.addEventListener('click', biggerTxt);
+        minusBtn.addEventListener('click', smallerTxt);
+    </script>
