@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex17.3</title>
+    <style>
+        div {
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="myFirstDiv"></div>
+    <div id="mySecondDiv"></div>
+    <div id="myThridDiv"></div>
+    <div id="myFourthDiv"></div>
+
+    <script>
+        
+        const myFirstDiv = document.querySelector("#myFirstDiv");
+        const mySecondDiv = document.querySelector("#mySecondDiv");
+        const myThirdDiv = document.querySelector("#myThirdDiv");
+        const myFourthDiv = document.querySelector("#myFourthDiv");
+
+        // better way:
+        const myDivs = document.querySelectorAll('div');
+        let divsArr = Array.from(myDivs);
+        divsArr.map((oneDiv, i) => {
+            let col = "";
+            for (let j = 0; j < 6; j++) {
+                col = `${col}${Math.floor(Math.random() * 16).toString(16)}`;
+            }
+            col = `#${col}`;
+            console.log(col);
+            return oneDiv.style.background = col;
+        });
+
+    </script>
+</body>
+</html>
