@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex18.2</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <script>
+        function getRandColor() {
+            let col = "";
+            for (let j = 0; j < 6; j++) {
+                col = `${col}${Math.floor(Math.random() * 16).toString(16)}`;
+            }
+            col = `#${col}`;
+            return col;
+        }
+
+        document.body.style.backgroundColor = getRandColor();
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.body.style.color = getRandColor();
+        document.body.style.width = '100vw';
+        document.body.style.height = '100vh';
+ 
+        let header = document.createElement('h1');
+        header.style.padding = '15vh';
+        header.style.textAlign = 'center';
+        header.style.fontFamily = `Segoe UI', Tahoma, Geneva, Verdana, sans-serif`;
+        document.body.appendChild(header).innerHTML = `HAPPY ADAR!`;
+
+        let boxes = document.createElement('div');
+        boxes.style.margin = 'auto';
+        boxes.style.textAlign = 'center';
+        boxes.style.display = 'flex';
+        document.body.appendChild(boxes).innerHTML = 'Ready for Purim?'
+
+        let box = document.createElement('div');
+        box.style.margin = '5px';
+        box.style.textAlign = 'center';
+        box.style.flex = '1';
+        box.style.backgroundColor = getRandColor();
+        box.style.border = '3px solid black';
+        box.style.color = 'black';
+        document.querySelector('div').appendChild(box).innerHTML = `Matanot La'Evyonim`;
+
+        box = document.createElement('div');
+        box.style.margin = '5px';
+        box.style.textAlign = 'center';
+        box.style.flex = '1';
+        box.style.backgroundColor = getRandColor();
+        box.style.border = '3px solid black';
+        box.style.color = 'black';
+        document.querySelector('div').appendChild(box).innerHTML = 'Mikra Megilah';
+
+        box = document.createElement('div');
+        box.style.margin = '5px';
+        box.style.textAlign = 'center';
+        box.style.flex = '1';
+        box.style.backgroundColor = getRandColor();
+        box.style.border = '3px solid black';
+        box.style.color = 'black';
+        document.querySelector('div').appendChild(box).innerHTML = 'Mishloach Manot';
+
+        box = document.createElement('div');
+        box.style.margin = '5px';
+        box.style.textAlign = 'center';
+        box.style.flex = '1';
+        box.style.backgroundColor = getRandColor();
+        box.style.border = '3px solid black';
+        box.style.color = 'black';
+        document.querySelector('div').appendChild(box).innerHTML = 'Mishte';
+
+
+
+    </script>
+</body>
+</html>
