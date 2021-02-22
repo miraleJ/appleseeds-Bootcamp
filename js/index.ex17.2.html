@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17.2</title>
+    <style>
+        p {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div>Why are you interested in this position?</div>
+    <textarea name="why" id="ta" cols="30" rows="10"></textarea>
+    <button>Submit</button>
+    <p>The answer is too short!</p>
+    <!--  -->
+    
+    <script>
+        const sbBtn = document.querySelector('button');
+        
+        
+        // 
+        function checkTxtLen() {
+            const textLen = document.querySelector('textarea').value.length;
+            
+            if (textLen <= 100) {
+                document.querySelector('p').style.display = 'block';   
+            } else {
+                document.querySelector('p').style.display = 'none';   
+            }
+        }
+        
+
+        sbBtn.addEventListener('click', checkTxtLen);
+    </script>
