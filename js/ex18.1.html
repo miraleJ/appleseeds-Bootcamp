@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex18.1</title>
+    <style>
+        textarea {
+            margin: 10px;
+        }
+        button {
+            margin: 0;
+        }
+        img {
+            display: none;
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>How many smileys do you want to see?</div>
+    <textarea name="num" id="smilyes" cols="30" rows="1"></textarea>
+    <button>submit</button>
+    <div>
+        <img src="https://i.pinimg.com/originals/1b/d0/1c/1bd01c9f55cb6760d5ad8a944fa02b3e.jpg" alt="smiley">
+    </div>
+    
+<script>
+    const btn = document.querySelector('button');
+
+    function smileyInput() {
+            const sQuan = document.querySelector('textarea').value;
+            
+            if (!isNaN(sQuan)) {
+                let num = parseInt(sQuan);
+                
+                document.querySelector('img').style.display = 'inline-block';   
+                for (let i = 1; i < num; i++) {
+                    document.querySelector('body').appendChild(document.querySelector('img').cloneNode(true));
+                    
+                }
+            } else {
+                const newContent = document.createTextNode("That's not a number...");
+                document.querySelector('body').appendChild(newContent);
+            };
+        }
+        
+
+        btn.addEventListener('click', smileyInput);
+</script>
+</body>
+
+</html>
