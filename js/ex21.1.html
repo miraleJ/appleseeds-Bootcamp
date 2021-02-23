@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex21.1</title>
+</head>
+<body>
+    <div>
+        <label for="age">Enter your age please</label>
+        <textarea  cols="5" rows="1"></textarea>
+        <button>try</button>
+        <div class="msg"></div>
+    </div>
+
+    <script>
+        const btn = document.querySelector('button');
+
+        function btmHandler() {
+            const age = document.querySelector('textarea').value;
+            
+            if (!isNaN(age)) {
+                let numAge = parseInt(age);
+                
+                if (numAge >= 18) {
+                    console.log('222222222222222222');
+                    document.querySelector('.msg').innerText = "you can drink";
+                } else {
+                    console.log('ldkjfdlkjf');
+                    document.querySelector('.msg').innerText = "you're too young";
+                }
+                
+                
+            } else {
+                const newContent = document.createTextNode("That's not a number...");
+                document.querySelector('body').appendChild(newContent);
+            };
+        }
+        
+
+        btn.addEventListener('click', btmHandler);
+    </script>
+</body>
+</html>
