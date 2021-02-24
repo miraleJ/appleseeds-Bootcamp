@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex19.2</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        .box {
+            border: 3px solid salmon;
+            display: flex;
+            width: 400px;
+            margin: auto;
+            margin-top: 50px;
+            height: 300px;
+            align-items: center;
+            
+        }
+        
+        textarea {
+            border: 2px solid purple;
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            font-size: 30px;
+            text-align: center;
+
+        }
+        button {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text to copy:</h1>
+    <h2>999999</h2>
+    <div class="box">
+        <textarea cols="1" rows="1" maxlength="1"></textarea>
+        <textarea cols="1" rows="1" maxlength="1"></textarea>
+        <textarea cols="1" rows="1" maxlength="1"></textarea>
+        <textarea cols="1" rows="1" maxlength="1"></textarea>
+        <textarea cols="1" rows="1" maxlength="1"></textarea>
+        <textarea cols="1" rows="1" maxlength="1"></textarea>
+        
+        
+        <button>verify</button>
+    </div>
+    <script>
+        let digits = document.querySelectorAll('textarea');
+        let btn = document.querySelector('button');
+
+        // for each digit
+        digits.forEach(num => {
+            num.addEventListener('keyup', elem => {
+                if (isFull()) {
+                    // don't wait to actual clicking' do it automaticly
+                    btn.click();
+                }
+                elem.nextElementSibling.focus();
+                elem.before(); // TODO needed?
+            });
+        });
+
+        const isFull = () => {
+            for (let i = 0; i < digits.length; i++) {
+                // if even 1 digit is empty
+                if (digits[i].value.length === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        btn.addEventListener('focus', () => {
+        btn.click();
+        });
+        
+    </script>
+</body>
+</html>
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .password {
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="ba">
+​
+</div>
+​
+<input type="text"  id="test">
+<script>
+    const ba = document.querySelector('#ba');
+    let passwordInput, btn;
+    start();
+​
+    function start() {
+        for (let i = 0; i < 10  ; i++) {
+            ba.innerHTML += `<input type="text" id="pass" maxLength="1"/>`
+        }
+​
+        ba.innerHTML += '<input id="click" type="button" value="click">'
+        btn = document.querySelector('#click')
+        passwordInput = document.querySelectorAll('#pass');//list
+        passwordInput.forEach((el, index) => {
+            el.classList.add("password")
+            el.addEventListener('keyup', (e) => {
+​
+                if(checkIfAllFull()){
+                    
+                    btn.click();
+                }
+                // console.log(e) //talk about it
+                el.nextElementSibling.focus();
+                el.before();
+            });
+        });
+    }
+
+    const checkIfAllFull = () => {
+        for (let i = 0; i < passwordInput.length; i++) {
+            if (passwordInput[i].value.length === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    btn.addEventListener('focus', (e) => {
+        console.log('btn is focus')
+        btn.click();
+        // passwordInput[2].
+    })
+​//TODO needed?
+    btn.addEventListener('click', () => {
+        console.log('click')
+    })
+​
+​//TODO needed?
+    document.getElementById('test').addEventListener("change",(e)=>{
+       console.log( e.target.value)
+    })
+​
+    document.getElementById('test').addEventListener("keydown",(e)=>{
+       console.log('click')
+    })
+    console.log('ba  :', ba);
+    console.log('passwordInput  :', passwordInput);
+    console.log('click :', click)
+​
+</script>
+</body>
+</html> -->

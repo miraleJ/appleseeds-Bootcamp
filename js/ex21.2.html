@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex21.2</title>
+</head>
+<body>
+    <script>
+        const users = [
+            {
+                id: 167464,
+                firstName: "Jimmy",
+                lastName: "Arnold",
+                email: "jimmya@gmail.com",
+            },
+            {
+                id: 578447,
+                firstName: "Martha",
+                lastName: "Goldman",
+                email: "gold@hotmail.com",
+            },
+            {
+                id: 864578,
+                firstName: "Tim",
+                lastName: "Burton",
+                email: "timmy.hotmail.com",
+            },
+        ];
+
+        let newDiv = document.createElement('div');
+        document.body.appendChild(newDiv);
+        newDiv.classList.add("users");
+
+        const oL = document.createElement("ol");
+        users.forEach(user => {
+            const lI = document.createElement("li");
+            lI.textContent = `${user.firstName} ${user.lastName}`;
+            lI.setAttribute('data-id', user.id);
+            oL.append(lI);
+        });
+        oL.style.listStyleType = 'none';
+
+        newDiv.append(oL);
+        console.log(newDiv);
+        
+    </script>
+</body>
+</html>

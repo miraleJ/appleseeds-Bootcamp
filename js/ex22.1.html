@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        
+        <form name="signup">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name">
+          <label for="age">Age</label>
+          <input type="text" id="age" name="age">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" >
+          
+          <button type="submit">Submit</button>
+        </form>
+    </div>
+        
+    <script>
+        const btn = document.querySelector('button');
+
+        btn.addEventListener('click', function(event) {
+            let str = `${event.currentTarget.name.value} ${event.currentTarget.age.value} ${event.currentTarget.email.value}`;
+            console.log(str);
+            const shouldChangePage = confirm('str');
+        });
+    </script>
+</body>
+</html>

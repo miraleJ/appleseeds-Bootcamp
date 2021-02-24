@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex22.2</title>
+    <style>
+        img {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="agree" name="agree">
+    <img src="https://source.unsplash.com/random" alt="">
+
+    <script>
+        // Get the checkbox
+        let checkBox = document.querySelector("input");
+        let image = document.querySelector("img");
+
+        checkBox.addEventListener('click', () => {
+            // If the checkbox is checked, display the img
+            if (checkBox.checked === true){
+                image.style.display = "block";
+            } else {
+                image.style.display = "none";
+            }
+        });            
+
+    </script>
+</body>
+</html>
