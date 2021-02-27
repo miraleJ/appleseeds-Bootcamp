@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex23.2</title>
+</head>
+<body>
+    <div class="stopWatch">
+        00 : 00 : 00
+    </div>
+    <button id = 'start'>start</button>
+    <button id = 'stop'>stop</button>
+
+    <script>
+        let stopwatchStr = '00 : 00 : 00';
+        let stopwatchdiv = querySelector('.stopwatch');
+        let startBtn = querySelector('#start');
+        let stopBtn = querySelector('#stop');
+
+        let stopwatchInterval;
+        let startTime;
+        let passedTime = 0;
+
+        startBtn.addEventListener('click', startTheWatch());
+        stopBtn.addEventListener('click', stopTheWatch());
+        
+
+        var startTime = new Date();
+
+        function startTheWatch() {
+            startTime = Date.now();
+            setTimeout(() => {
+            clearInterval(stopwatchInterval);
+            }, 3600000);
+            stopwatchInterval = setInterval(() => {
+            const passed = new Date(Date.now() - startTime + passedTime);
+            const sec = ("0" + passed.getSeconds()).slice(-2);
+            const minutes = ("0" + passed.getMinutes()).slice(-2);
+            const milisec = (
+                "0" + parseInt(passed.getMilliseconds() / 10)
+            ).slice(-2);
+            stopwatchStr = `${minutes} : ${sec} : ${milisec}`;
+
+            stopwatchdiv.innerText = stopwatchStr;
+            }, 10);
+        }
+
+        function stopTheWatch() {
+            clearInterval(stopwatchInterval);
+            passedTime += new Date(Date.now() - startTime).getTime();
+        }
+    </script>
+</body>
+</html>
