@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex34.1</title>
+</head>
+<body>
+    <script>
+        class Character {
+            constructor(name, height, hairColor, planetFrom, planetPopulation) {
+                this.name = name;
+                this.height = height;
+                this.hairColor = hairColor;
+                this.planetFrom = planetFrom;
+                this.planetPopulation = planetPopulation;
+            }
+        }
+
+        // function handleError(err) {
+        //     console.log('We have a problem.')
+        // }
+
+        async function getPerson(numInDatabase) {
+            const endpoint = 'https://swapi.dev/api/people/';
+            const peoplePromise = await fetch(`${endpoint}${numInDatabase}/`);
+            let data = await peoplePromise.json();
+            let c = new Character(data.name, data.height, data.hair_color, data.homeworld, data.population);
+            let planetData = await fetch(data.homeworld);
+            planetData = await planetData.json();
+            c.planetFrom = planetData.name;
+            c.planetPopulation = planetData.population;
+            return c;
+            // peoplePromise.then(person1 => {
+            //     return person1.json();
+            // }).then(data => {
+            //     let c = new Character(data.name, data.height, data.hair_color, data.homeworld, data.population);
+                
+            //     return c;
+            //     //.planetFrom
+            // })
+            // .then(planetSite =>{
+            //     return fetch(planetSite);
+            // })
+            // .then(planetData => {
+            //     return planetData.json();
+            // })
+            // .then(planetData => {
+            //     c.planetFrom = planetData.name;
+            //     c.population = planetData.population;
+            //     return c;
+            // })
+            // .catch(handleError)
+        }
+
+        async function getPeople(num) {
+            const peopleInfo = [];
+
+            for (let i = 0; i < num; i++) {
+                // random number between 0-83
+                let randNum = Math.floor(Math.random() * (83 - 1) ) + 1;
+                peopleInfo[i] = await getPerson(randNum);     
+            }
+
+            return peopleInfo;
+        }
+        
+        const peopleInfo = async () => {
+            let p = await getPeople(10);
+            console.log(p);
+        }
+        peopleInfo();
+        
+        
+
+    </script>
+</body>
+</html>
