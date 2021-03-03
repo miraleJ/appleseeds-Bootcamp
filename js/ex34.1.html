@@ -7,6 +7,8 @@
     <title>ex34.1</title>
 </head>
 <body>
+    <div></div>
+
     <script>
         class Character {
             constructor(name, height, hairColor, planetFrom, planetPopulation) {
@@ -18,9 +20,9 @@
             }
         }
 
-        // function handleError(err) {
-        //     console.log('We have a problem.')
-        // }
+        function handleError(err) {
+            console.log('We have a problem.')
+        }
 
         async function getPerson(numInDatabase) {
             const endpoint = 'https://swapi.dev/api/people/';
@@ -32,26 +34,6 @@
             c.planetFrom = planetData.name;
             c.planetPopulation = planetData.population;
             return c;
-            // peoplePromise.then(person1 => {
-            //     return person1.json();
-            // }).then(data => {
-            //     let c = new Character(data.name, data.height, data.hair_color, data.homeworld, data.population);
-                
-            //     return c;
-            //     //.planetFrom
-            // })
-            // .then(planetSite =>{
-            //     return fetch(planetSite);
-            // })
-            // .then(planetData => {
-            //     return planetData.json();
-            // })
-            // .then(planetData => {
-            //     c.planetFrom = planetData.name;
-            //     c.population = planetData.population;
-            //     return c;
-            // })
-            // .catch(handleError)
         }
 
         async function getPeople(num) {
@@ -69,7 +51,27 @@
         const peopleInfo = async () => {
             let p = await getPeople(10);
             console.log(p);
+            showPeople(p);
         }
+
+        function showPeople(pArr) {
+            const divParent = document.querySelector('div');
+            const div = document.createElement('table');
+            
+            pArr.forEach((person) => {
+                console.log(person)
+                div.innerHTML +=
+                    `<tr>
+                        <td>${person.name}</td>
+                        <td>${person.hair}</td>
+                        <td>${person.height}</td>
+                        <td>${person.worldName}</td>
+                        <td>${person.population}</td>
+                    </tr>`
+            })
+            divParent.appendChild(div);
+        }
+
         peopleInfo();
         
         
